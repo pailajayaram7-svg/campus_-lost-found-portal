@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost & Found Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#home">🎓 Campus Lost & Found</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#browse">Browse Items</a>
+      <a href="#report">Report Item</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">YOUR CAMPUS COMMUNITY</p>
+        <h1>Find It. Claim It. Return It.</h1>
+        <p>Helping students reunite with their lost belongings.</p>
+        <a class="button" href="#browse">Browse Items</a>
+        <a class="button outline" href="#report">Report an Item</a>
+      </div>
+      <div class="hero-icon">🎒</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat">
+        <span>📦</span>
+        <div><h2 id="totalCount">0</h2><p>Total Reports</p></div>
+      </article>
+      <article class="stat lost-stat">
+        <span>🔍</span>
+        <div><h2 id="lostCount">0</h2><p>Lost Items</p></div>
+      </article>
+      <article class="stat found-stat">
+        <span>✅</span>
+        <div><h2 id="foundCount">0</h2><p>Found Items</p></div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <div class="browse-panel" id="browse">
+        <h2>Browse Items</h2>
+        <div class="filters">
+          <input id="searchInput" type="search"
+                 placeholder="Search item or campus location..."
+                 aria-label="Search items">
+          <select id="typeFilter" aria-label="Filter item type">
+            <option value="All">All Items</option>
+            <option value="Lost">Lost Items</option>
+            <option value="Found">Found Items</option>
+          </select>
+          <select id="sortFilter" aria-label="Sort items">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+        <div id="itemList" class="item-grid"></div>
+        <p id="emptyMessage" class="empty hidden">No matching items found.</p>
+      </div>
+
+      <aside class="report-panel" id="report">
+        <h2>📝 Report an Item</h2>
+        <p class="muted">Provide the details to help reunite an item with its owner.</p>
+
+        <form id="reportForm">
+          <label for="itemType">Report Type *</label>
+          <select id="itemType" required>
+            <option value="Lost">Lost Item</option>
+            <option value="Found">Found Item</option>
+          </select>
+
+          <label for="itemName">Item Name *</label>
+          <input id="itemName" required maxlength="80"
+                 placeholder="e.g. Black wallet">
+
+          <label for="description">Description *</label>
+          <textarea id="description" required maxlength="500"
+                    placeholder="Describe the item..." rows="3"></textarea>
+
+          <label for="location">Campus Location *</label>
+          <input id="location" required maxlength="100"
+                 placeholder="e.g. Library, Canteen">
+
+          <label for="itemDate">Date Lost / Found *</label>
+          <input id="itemDate" type="date" required>
+
+          <label for="contact">Contact Email or Phone *</label>
+          <input id="contact" required maxlength="100"
+                 placeholder="Your contact details">
+
+          <button class="submit-btn" type="submit">＋ Submit Report</button>
+          <p id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>🎓 Campus Lost & Found Portal</p>
+    <p>Student Project Prototype · Help make campus a better place.</p>
+  </footer>
+</body>
+</html>
